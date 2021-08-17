@@ -18,3 +18,5 @@ Right click on project choose properties under targeted Runtimes ensure the tomc
 
 Choose drop down by green play button on top menu bar and choose run as and run as server
 
+
+[Video showing this project from scratch](https://www.youtube.com/watch?v=QwjOtVkGaVc)
