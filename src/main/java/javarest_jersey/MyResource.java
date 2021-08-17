@@ -17,6 +17,6 @@ public class MyResource {
     @GET 
     @Produces("text/plain")
     public String getIt() {
-        return "Hi there!";
+        return "Hi there this is my resource in javarest-jersey app!";
     }
 }
