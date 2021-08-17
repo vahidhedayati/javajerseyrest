@@ -32,6 +32,7 @@ public class BookResource {
 	@POST
 	@Path("book")
 	public Book createBook(Book b) {
+		System.out.println(" Creating book: "+b.toString());
 		repo.create(b);
 		return b;
 	}
