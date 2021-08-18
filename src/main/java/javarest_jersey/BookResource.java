@@ -29,6 +29,16 @@ public class BookResource {
 		return repo.getBook(id);
 	}
 	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("author/{firstName}")
+	public Author getAuthorFromBook(@PathParam("firstName") String firstName) {
+		System.out.println("Find author by firstName: "+firstName+"");
+		return MockPersistence.getAuthorFromBook(firstName);
+	}
+	
+	
+	
 	@POST
 	@Path("book")
 	public Book createBook(Book b) {

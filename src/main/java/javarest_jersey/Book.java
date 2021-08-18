@@ -1,5 +1,8 @@
 package javarest_jersey;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -11,6 +14,8 @@ public class Book {
 	private int stockTotal;
 	Author author;
 	
+	List<Author> authors;
+	
 	public Book() {
 		
 	}
@@ -19,10 +24,18 @@ public class Book {
 		this.name = updatedBook.getName();
 		this.isbn = updatedBook.getIsbn();
 		this.stockTotal = updatedBook.getStockTotal();
-		this.author = updatedBook.getAuthor();
+		this.setAuthor(updatedBook.getAuthor());
 		return this;
 	}
 	
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -54,12 +67,23 @@ public class Book {
 
 	public void setAuthor(Author author) {
 		this.author = author;
+		addToAuthors(author);
+	}
+
+	public void addToAuthors(Author author) {
+		if (this.authors == null ||
+				this.authors != null && !this.authors.contains(author)) {
+			if (this.authors == null ) {
+				this.authors = new ArrayList<Author>();
+			}
+			this.authors.add(author);
+		}
 	}
 
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", name=" + name + ", isbn=" + isbn + ", stockTotal=" + stockTotal + ", author="
-				+ author + "]";
+				+ author + ", authors=" + authors + "]";
 	}
 
 	public Book(int id, String name, String isbn, int stockTotal, Author author) {

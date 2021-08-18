@@ -2,6 +2,7 @@ package javarest_jersey;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MockPersistence {
@@ -68,6 +69,16 @@ public class MockPersistence {
 	public static Author getAuthor(int id) {
 		return authors.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
 	}
+	
+	public static Author getAuthorFromBook(String firstName) {
+		Optional<Book> tempBooks = books.stream().filter(book -> book.getAuthors().stream()
+				.anyMatch(author -> author.getFirstName().equals(firstName))).findAny();
+		if (tempBooks.isPresent()) {
+			return tempBooks.get().getAuthors().stream().filter(author -> author.getFirstName().equals(firstName)).findFirst().orElse(null);	
+		}
+		return null;
+	}
+	
 
 	public static List<Author> updateAuthor(int id, Author updatedAuthor) {
 		Author currentAuthor = getAuthor(id);

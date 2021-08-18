@@ -41,14 +41,20 @@ public BookRepository() {
 		book2.setIsbn("A1B2C5");
 		book2.setStockTotal(10);
 		book2.setAuthor(author2);
+		
 		MockPersistence.addBook(book2);
 		
 		Author author3 = MockPersistence.getAuthorByName("Toni", "Morrison");
-		System.out.println("author1 "+author3);
+		//System.out.println("author: "+author3);
 		if (author3==null) {
 			author3 = new Author(101, "Toni", "Morrison");	
 		}
+		
 		Book book3 = new Book(103, "Beloved", "A2B2C3", 20, author3);
+		
+		//This is the only book in this example which has 2 authors pushed to it
+		book3.addToAuthors(author2);
+		
 		
 		// books.add(book1);
 		// books.add(book2);

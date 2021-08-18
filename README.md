@@ -39,6 +39,10 @@ Authors only comes alive after books has been hit once
 `http://localhost:8080/javarest-jersey/app/authors/books/100`
 
 
+`http://localhost:8080/javarest-jersey/app/mybooks/author/Harper` - This attempts to find an author from the hasMany authors listed in a book - it was obviously already done via author lookups - just an example of finding an object in a subList within another list.
+
+
+
 Sending a request via `POSTMAN` rest utility to `localhost:8080/javarest-jersey/app/authors/author/100` with method set to `DELETE` should also remove 2 books belonging to that author
 
 
