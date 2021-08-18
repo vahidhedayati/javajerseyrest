@@ -11,7 +11,7 @@ Create a maven project - look for jersey and filter for jersey-quickstart-webapp
 
 When installed - look through pom.xml and change beta jersey.version to this current version ` <jersey.version>1.19.4</jersey.version>`
 
-Project will be then upto this point of checkin
+Project will be then [up until this point of checked in code](https://github.com/vahidhedayati/javajerseyrest/commit/ff3660976a8d1468c055ddfb346b6befa03c2a64). This is all better explained in first video
 
 
 Right click on project choose properties under targeted Runtimes ensure the tomcat configured is selected. 
@@ -19,7 +19,10 @@ Right click on project choose properties under targeted Runtimes ensure the tomc
 Choose drop down by green play button on top menu bar and choose run as and run as server
 
 
-[Video showing this project from scratch](https://www.youtube.com/watch?v=QwjOtVkGaVc)
+[Video showing this project from scratch Part 1 ](https://www.youtube.com/watch?v=QwjOtVkGaVc)
+
+[Quick video: Walking through Author addition](https://www.youtube.com/watch?v=hunWDKyN7S4)
+
 
 
 ### On successful launch some url's available are:
