@@ -21,12 +21,21 @@ Choose drop down by green play button on top menu bar and choose run as and run 
 
 [Video showing this project from scratch](https://www.youtube.com/watch?v=QwjOtVkGaVc)
 
-http://localhost:8080/javarest-jersey/app/mybooks
+
+### On successful launch some url's available are:
 
 
-http://localhost:8080/javarest-jersey/app/authors
+`http://localhost:8080/javarest-jersey/app/mybooks`
 
 
-http://localhost:8080/javarest-jersey/app/authors/books/100
+Authors only comes alive after books has been hit once 
+
+`http://localhost:8080/javarest-jersey/app/authors`
+
+
+`http://localhost:8080/javarest-jersey/app/authors/books/100`
+
+
+Sending a request via `POSTMAN` rest utility to `localhost:8080/javarest-jersey/app/authors/author/100` with method set to `DELETE` should also remove 2 books belonging to that author
 
 
