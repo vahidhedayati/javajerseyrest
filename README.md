@@ -20,3 +20,13 @@ Choose drop down by green play button on top menu bar and choose run as and run 
 
 
 [Video showing this project from scratch](https://www.youtube.com/watch?v=QwjOtVkGaVc)
+
+http://localhost:8080/javarest-jersey/app/mybooks
+
+
+http://localhost:8080/javarest-jersey/app/authors
+
+
+http://localhost:8080/javarest-jersey/app/authors/books/100
+
+

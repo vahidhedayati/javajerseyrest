@@ -12,7 +12,7 @@ public class MockPersistence {
 	
 	
 	public static void addBook(Book b) {
-		books.add(b);
+		create(b);
 	}
 	
 
@@ -29,10 +29,13 @@ public class MockPersistence {
 	}
 
 	public static void create(Book b) {
+		System.out.println("Adding a book: "+b);
 		books.add(b);
-		
+		System.out.println("Looking for an author");
 		Author currentAuthor = getAuthor(b.getAuthor().getId());
-		if (currentAuthor != null) {
+		System.out.println("currentAuthor: "+currentAuthor+" "+b.getAuthor()+" "+b);
+		if (currentAuthor == null) {
+			System.out.println("Adding "+b.getAuthor());
 			authors.add(b.getAuthor());
 		}
 	}
@@ -51,7 +54,8 @@ public class MockPersistence {
 	}
 	
 	public static Author getAuthorByName(String firstName, String lastName) {
-		return authors.stream().filter(b -> b.getFirstName().equals(firstName) && b.getLastName().equals(lastName)).findAny().orElse(null);
+		//return authors.stream().filter(b -> b.getFirstName().equals(firstName) && b.getLastName().equals(lastName)).findAny().orElse(null);
+		return authors.stream().filter(b -> b.getFirstName()==firstName && b.getLastName()==lastName).findAny().orElse(null);
 	}
 	
 	
@@ -62,7 +66,7 @@ public class MockPersistence {
 	}
 	
 	public static Author getAuthor(int id) {
-		return authors.stream().filter(b -> b.getId() == id).findAny().orElse(null);
+		return authors.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
 	}
 
 	public static List<Author> updateAuthor(int id, Author updatedAuthor) {

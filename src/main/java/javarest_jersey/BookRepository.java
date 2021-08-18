@@ -12,6 +12,7 @@ public BookRepository() {
 		
 		
 		Author author1 = MockPersistence.getAuthorByName("Harper", "Lee");
+		System.out.println("author1 "+author1);
 		if (author1==null) {
 			author1 = new Author(100, "Harper", "Lee");	
 		}
@@ -24,28 +25,36 @@ public BookRepository() {
 		book1.setIsbn("A1B2C3");
 		book1.setStockTotal(10);
 		book1.setAuthor(author1);
+		MockPersistence.addBook(book1);
 		
 		// Test persisted author object 
 		Author author2 = MockPersistence.getAuthorByName("Harper", "Lee");
 		if (author2==null) {
+			System.out.println("We did NOT find an existing author");
 			author2 = new Author(100, "Harper", "Lee");	
 		} else {
 			System.out.println("We found existing author on mocked Persistent object "+author2);
 		}
-		book1.setName("Go Set A Watchman");
-		book1.setId(102);
-		book1.setIsbn("A1B2C5");
-		book1.setStockTotal(10);
-		book1.setAuthor(author2);
+		Book book2 = new Book();
+		book2.setName("Go Set A Watchman");
+		book2.setId(102);
+		book2.setIsbn("A1B2C5");
+		book2.setStockTotal(10);
+		book2.setAuthor(author2);
+		MockPersistence.addBook(book2);
 		
-		
-		Book book2 = new Book(103, "Beloved", "A2B2C3", 20, new Author(100, "Toni", "Morrison"));
+		Author author3 = MockPersistence.getAuthorByName("Toni", "Morrison");
+		System.out.println("author1 "+author3);
+		if (author3==null) {
+			author3 = new Author(101, "Toni", "Morrison");	
+		}
+		Book book3 = new Book(103, "Beloved", "A2B2C3", 20, author3);
 		
 		// books.add(book1);
 		// books.add(book2);
 		
-		MockPersistence.addBook(book1);
-		MockPersistence.addBook(book2);
+		
+		MockPersistence.addBook(book3);
 		System.out.println(" PB - "+MockPersistence.getBooks().size());
 	
 	}

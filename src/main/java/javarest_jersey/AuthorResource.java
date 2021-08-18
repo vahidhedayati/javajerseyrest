@@ -20,6 +20,17 @@ public class AuthorResource {
 		return (ArrayList<Author>) MockPersistence.getAuthors();
 	}
 	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("books/{id}")
+	public ArrayList<Book> getAuthorBooks(@PathParam("id") int id) {
+		Author author = (Author) MockPersistence.getAuthor(id);
+		if (author !=null) {
+			return (ArrayList<Book>) author.getBooks();	
+		}
+		//return new ArrayList<Book>();
+		return null;
+	}
 	
 	@GET
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
